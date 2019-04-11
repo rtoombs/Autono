@@ -1,0 +1,155 @@
+/*
+    Header
+ */
+
+.header-block {
+    height: 100px;
+    border: 1px solid red;
+}
+
+/*
+    Filter
+ */
+
+#filter-block {
+    height: 100px;
+    border: 1px solid green;
+}
+
+.model-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.model-icon {
+    height: 50px;
+}
+
+.model-icon.selected {
+    filter: opacity(0.3);
+}
+
+.status-block {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*
+    Content
+ */
+
+.card-container {
+    perspective: 600;
+}
+.card {
+    height: 100%;
+//position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    width: 100%;
+}
+.card:hover {
+//transform: rotateY(180deg);
+}
+.card .side {
+    backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 0 25px;
+//height: 100%;
+//position: absolute;
+//overflow: hidden;
+//width: 100%;
+}
+
+.back{
+    position: absolute;
+    width: 100%;
+}
+
+.card .back {
+//background: #eaeaed;
+    height: 100%;
+    color: #0087cc;
+    line-height: 150px;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+.vehicle-card {
+    border: 1px solid red;
+    width: 300px;
+    height: 450px;
+
+    margin: 0 50px;
+    //border-radius: 15px;
+}
+
+.vehicle-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.vehicle-image {
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.vehicle-title span {
+    font-size: 25px;
+}
+
+.vehicle-head .vehicle-title {
+    text-align: center;
+}
+
+.vehicle-head .vehicle-trim {
+    text-align: center
+}
+
+.vehicle-head {
+    padding-bottom: 20px;
+}
+
+.vehicle-msrp{
+    height: 33px;
+}
+
+.vehicle-msrp span {
+    font-size: 22px;
+}
+
+.msrp-title {
+    float: left;
+    padding-right: 10px;
+    font-size: 22px;
+}
+
+.stock-number {
+    clear: both;
+}
+
+.stock-title {
+    float: left;
+    padding-right: 10px;
+}
+
+.buttons {
+    padding-top: 44%;
+}
+
+.buttons .btn {
+    width: 75px;
+}
+
+.model-icon {
+    width: 50px;
+    border: 2px solid black;
+    border-radius: 11px;
+}

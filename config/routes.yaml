@@ -1,3 +1,15 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+srp_page:
+  path: /
+  controller: App\Controller\SRPController::go
+
+get_all_inventory:
+  path: /get/all_inventory
+  controller: App\Controller\SRPController::GetAllInventory
+
+get_filtered_inventory:
+  path: /get/filter
+  controller: App\Controller\SRPController::filterController

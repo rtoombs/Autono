@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Test SRP{% endblock %}
+
+{% block body %}
+    {% block header %}
+        <div class="header-block">
+            <h1>TEst</h1>
+        </div>
+    {% endblock %}
+    <div id="filter-block">
+        <div class="status-block">
+            <input type="checkbox" class="status-checkbox" id="newVehicle" value="new"> New<br>
+            <input type="checkbox" class="status-checkbox" id="usedVehicle" value="used"> Used<br>
+            <input type="checkbox" class="status-checkbox" id="cpoVehicle" value="cpo"> CPO<br>
+        </div>
+        <div class="model-block">
+            <img class="model-icon" id="Ford" src="/images/ford_done.jpg">
+            <img class="model-icon" id="Hyundai" src="/images/hyundai_done.jpg">
+            <img class="model-icon" id="Infiniti" src="/images/infiniti_done.jpg">
+        </div>
+    </div>
+    {% block filter %}
+
+    {% endblock %}
+
+    <h4>Vehic</h4>
+    <ul data-bind="foreach: list" class="vehicle-container">
+        <li>
+            <div class="card-container">
+                <div class="vehicle-card card" data-bind="attr: { id: stock_no }">
+                    <div class="side">
+                        <img class="vehicle-image" src="/images/car.png">
+                        <div class="vehicle-head">
+                            <div class="vehicle-title">
+                                <span data-bind="text: veh_year"> </span>
+                                <span data-bind="text: veh_make"> </span>
+                                <span data-bind="text: veh_model"> </span>
+                            </div>
+                            <div class="vehicle-trim">
+                                <span data-bind="text: veh_trim"> </span>
+                            </div>
+                        </div>
+                        <div class="vehicle-msrp">
+                            <p class="msrp-title">MSRP:</p><span data-bind="text: msrp_price"> </span>
+                        </div>
+                        <div class="stock-number">
+                            <p class="stock-title">Stock No:</p><span data-bind="text: stock_no"> </span>
+                        </div>
+                        <div class="buttons">
+                            <a class="btn btn-primary" href="#" role="button">Link</a>
+                            <a class="btn btn-primary" href="#" role="button">Link</a>
+                            <button type="button" class="btn btn-success flip-card" data-bind="attr: { id: stock_no }">Succe</button>
+                        </div>
+                    </div>
+                    <div class="side back" data-bind="attr: { id: stock_no }">
+                        hallelujah
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+{% endblock %}
