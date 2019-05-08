@@ -5,22 +5,90 @@
 {% block body %}
     {% block header %}
         <div class="header-block">
-            <h1>TEst</h1>
+            <h1>Placeholder</h1>
         </div>
     {% endblock %}
     <div id="filter-block">
-        <div class="status-block">
-            <input type="checkbox" class="status-checkbox" id="newVehicle" value="new"> New<br>
-            <input type="checkbox" class="status-checkbox" id="usedVehicle" value="used"> Used<br>
-            <input type="checkbox" class="status-checkbox" id="cpoVehicle" value="cpo"> CPO<br>
-        </div>
         <div class="model-block">
-            <img class="model-icon" id="Ford" src="/images/ford_done.jpg">
-            <img class="model-icon" id="Hyundai" src="/images/hyundai_done.jpg">
+            <img class="model-icon" id="Ford" src="/images/ford.png">
             <img class="model-icon" id="Infiniti" src="/images/infiniti_done.jpg">
+            <img class="model-icon" id="Hyundai" src="/images/hyundai.png">
+            <img class="model-icon" id="Oldsmobile" src="/images/oldsmobile.png">
+            <img class="model-icon" id="Jeep" src="/images/jeep.png">
+            <img class="model-icon" id="Saturn" src="/images/saturn.png">
+            <img class="model-icon" id="Bmw" src="/images/bmw.png">
+            <img class="model-icon" id="Nissan" src="/images/nissan.png">
+            <img class="model-icon" id="Lincoln" src="/images/lincoln.png">
+            <img class="model-icon" id="Dodge" src="/images/dodge.png">
+            <img class="model-icon" id="Toyota" src="/images/toyota.png">
+            <img class="model-icon" id="Land Rover" src="/images/landrover2.png">
+            <img class="model-icon" id="Mercedes" src="/images/mercedesbenz2.png">
+            <img class="model-icon" id="Kia" src="/images/kia.png">
+            <img class="model-icon" id="Cadillac" src="/images/cadillac.png">
+            <img class="model-icon" id="Mitsubishi" src="/images/mitsubishi.png">
+            <img class="model-icon" id="Audi" src="/images/audi.png">
+            <img class="model-icon" id="Gmc" src="/images/gm.png">
+            <img class="model-icon" id="Chevrolet" src="/images/chevy.png">
+            <img class="model-icon" id="Honda" src="/images/honda3.png">
+            <img class="model-icon" id="Mazda" src="/images/mazda2.png">
+            <img class="model-icon" id="Miscellaneous" src="/images/other.png">
         </div>
+        <div class="bottom-block">
+            <div class="status-block">
+                <input type="checkbox" class="status-checkbox" id="newVehicle" value="new"> New<br>
+                <input type="checkbox" class="status-checkbox" id="usedVehicle" value="used"> Used<br>
+                <input type="checkbox" class="status-checkbox" id="cpoVehicle" value="cpo"> CPO<br>
+            </div>
+            <div id="price-button-container">
+                <button id="price-button" type="button">Price</button>
+            </div>
+            <div id="year-button-container">
+                <button id="year-button" type="button">YEER</button>
+            </div>
+            <div id="body-button-container">
+                <button id="body-button" type="button">Body</button>
+            </div>
+            <div id="reset-button-container">
+                <button id="reset-button" type="button">RESETTI</button>
+            </div>
+        </div>
+        <div class="filter-overlay"></div>
     </div>
     {% block filter %}
+
+    {% block options %}
+        <div id="filter-options-container">
+            <div class="filter-options" id="price-filter-options">
+                <div class="slide-container">
+                    <p>
+                        <label for="price-range">Price range:</label>
+                        <input type="text" id="price-range" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        <a href="#" id="price-reset">Reset</a>
+                    </p>
+                    <div id="slider-price"></div>
+                </div>
+            </div>
+            <div class="filter-options" id="year-filter-options">
+                <div class="slide-container">
+                    <p>
+                        <label for="year-range">year range:</label>
+                        <input type="text" id="year-range" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        <a href="#" id="year-reset">Reset</a>
+                    </p>
+                    <div id="slider-year"></div>
+                </div>
+            </div>
+            <div class="filter-options" id="body-filter-options">
+                <div class="slide-container">
+                    <ul data-bind="foreach: body" class="body-list">
+                        <li class="body-filter-item" data-bind="attr: { id: id }">
+                            <span class="body-filter-text" data-bind="text: name"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
 
     {% endblock %}
 
@@ -50,7 +118,9 @@
                         <div class="buttons">
                             <a class="btn btn-primary" href="#" role="button">Link</a>
                             <a class="btn btn-primary" href="#" role="button">Link</a>
-                            <button type="button" class="btn btn-success flip-card" data-bind="attr: { id: stock_no }">Succe</button>
+                            <button type="button" class="btn btn-success flip-card" data-bind="attr: { id: stock_no }">
+                                Succe
+                            </button>
                         </div>
                     </div>
                     <div class="side back" data-bind="attr: { id: stock_no }">

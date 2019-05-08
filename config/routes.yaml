@@ -13,3 +13,15 @@ get_all_inventory:
 get_filtered_inventory:
   path: /get/filter
   controller: App\Controller\SRPController::filterController
+
+get_max_price:
+  path: /get/max_price
+  controller: App\Controller\SRPController::getMaxPrice
+
+get_max_year:
+  path: /get/max_year
+  controller: App\Controller\SRPController::getMaxYear
+
+get_all_body:
+  path: /get/all_body_types
+  controller: App\Controller\SRPController::getAllBodyTypes

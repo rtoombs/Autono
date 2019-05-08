@@ -19,6 +19,8 @@
 .model-block {
     display: flex;
     flex-direction: row;
+    padding: 5px 0;
+    justify-content: center;
 }
 
 .model-icon {
@@ -32,6 +34,74 @@
 .status-block {
     display: flex;
     flex-direction: row;
+    float: left;
+    padding: 0 10px;
+}
+
+.filter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1100;
+    display: none;
+}
+
+.bottom-block {
+    display: flex;
+}
+/*
+    Filter Options
+ */
+
+#filter-options-container {
+
+}
+
+.filter-options {
+    height: 100px;
+    border: 1px solid blue;
+    background-color: #565656;
+    width:600px;
+    margin: 0 auto;
+    display: none;
+    z-index: 1200;
+    position: absolute;
+    right: 25%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.ui-slider {
+    width: 500px;
+    margin: 0 auto;
+}
+
+#price-button-container {
+    float: left;
+}
+
+.body-list {
+    display: flex;
+}
+
+.body-filter-item {
+    border: 1px solid white;
+    margin: 10px 5px;
+}
+
+.body-filter-item.selected {
+    background: gray;
+}
+
+.body-filter-item:hover {
+    cursor: pointer;
+}
+
+.body-filter-text {
+    color: white;
 }
 
 
@@ -152,4 +222,5 @@ ul {
     width: 50px;
     border: 2px solid black;
     border-radius: 11px;
+    margin-left: 5px;
 }

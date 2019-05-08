@@ -101,6 +101,21 @@ class Vehicle
      */
     private $cpo_flag;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $veh_type;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $veh_style;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $engine_type;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -306,6 +321,42 @@ class Vehicle
     public function setCpoFlag(int $cpo_flag): self
     {
         $this->cpo_flag = $cpo_flag;
+
+        return $this;
+    }
+
+    public function getVehType(): ?string
+    {
+        return $this->veh_type;
+    }
+
+    public function setVehType(string $veh_type): self
+    {
+        $this->veh_type = $veh_type;
+
+        return $this;
+    }
+
+    public function getVehStyle(): ?string
+    {
+        return $this->veh_style;
+    }
+
+    public function setVehStyle(string $veh_style): self
+    {
+        $this->veh_style = $veh_style;
+
+        return $this;
+    }
+
+    public function getEngineType(): ?string
+    {
+        return $this->engine_type;
+    }
+
+    public function setEngineType(?string $engine_type): self
+    {
+        $this->engine_type = $engine_type;
 
         return $this;
     }

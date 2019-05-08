@@ -19,7 +19,7 @@ class VehicleRepository extends ServiceEntityRepository
         parent::__construct($registry, Vehicle::class);
     }
 
-    public function testFilter($queryArray) {
+    public function testFilter($queryArray, $queryFlags) {
         $em = $this->getEntityManager()->getConnection();
         $sql = "";
         if (count($queryArray) >= 1){
@@ -28,7 +28,7 @@ class VehicleRepository extends ServiceEntityRepository
             WHERE ';
             for ($i = 0; $i < count($queryArray); ++$i){
                 if ($i == count($queryArray)-1) {
-                    $sql .= $queryArray[$i] . ";";
+                    $sql .= $queryArray[$i];
                 } else {
                     $sql .= $queryArray[$i] . " AND ";
                 }
@@ -37,7 +37,52 @@ class VehicleRepository extends ServiceEntityRepository
             $sql = '
             SELECT * FROM Vehicle v;';
         }
+        if ($queryFlags['priceFlag']){
+            $sql .= " ORDER BY v.msrp_price ASC";
+        }
 
+        $sql .= ";";
+        $stmt = $em->prepare($sql);
+        $stmt->execute();
+
+        $bodyQuery = "";
+        //if (!$queryFlags["bodyFlag"]){
+            $bodyQuery = $this->getCurrentBodyTypes($sql);
+        //}
+
+        return $returnArray = [
+            'bodyUpdate' => $bodyQuery,
+            'vehicleList' => $stmt->fetchAll(),
+        ];
+    }
+
+    public function getPriceSliderMax() {
+        $em = $this->getEntityManager()->getConnection();
+        $sql = 'select max(msrp_price) from vehicle;';
+        $stmt = $em->prepare($sql);
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
+
+    public function getYearSliderMax() {
+        $em = $this->getEntityManager()->getConnection();
+        $sql = 'select max(veh_year) as max, min(veh_year) as min from vehicle;';
+        $stmt = $em->prepare($sql);
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
+
+    public function getCurrentBodyTypes($sql) {
+        $newQuery = str_replace("*", "distinct veh_style", $sql);
+        $em = $this->getEntityManager()->getConnection();
+        $stmt = $em->prepare($newQuery);
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
+
+    public function getAllBodyTypes() {
+        $em = $this->getEntityManager()->getConnection();
+        $sql = 'select distinct veh_style from vehicle;';
         $stmt = $em->prepare($sql);
         $stmt->execute();
         return  $stmt->fetchAll();
